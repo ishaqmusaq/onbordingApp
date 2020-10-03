@@ -1,15 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React,{Component} from 'react';
+import { StyleSheet, Text, View ,FlatList} from 'react-native';
+import OnlineShoppingScreen from './components/OnlineShoppingScreen';
+import AddToChartScreen from './components/AddToChartScreen';
+import PaymentSuccess from './components/PaymentSuccess';
 
-export default function App() {
+  class  App extends  Component {
+
+    render(){
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      
+      
       <StatusBar style="auto" />
+      {/*<OnlineShoppingScreen/>*/}
+      {/*<AddToChartScreen/>*/}
+      <PaymentSuccess/>
+      
     </View>
   );
 }
+  }
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +30,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
