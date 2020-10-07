@@ -14,12 +14,14 @@ export default function Ecomence ({name,price,image}){
 <Image source={image} style={styles.imageContainer} siz={25}/>
        <View style={styles.infoContainer}>
            <Text style={styles.names} numberOfLines={1}> {name}</Text>
-           <Text style={styles.infoDetails}>{price}</Text>
-     <View style={styles.imageIconsContainer}>
-<Image  style={styles.imageIcons} source={require('../assets/splash.png')}/>
-<Image  style={styles.imageIcons} source={require('../assets/splash.png')}/>
+
+           <View style={styles.imageIconsContainer}>
+<Image  style={styles.imageIcons} source={require('../assets/rating.png')}/>
+
 
      </View>
+           <Text style={styles.infoDetails}>{price}</Text>
+     
 
 
 </View>
@@ -36,12 +38,13 @@ export default function Ecomence ({name,price,image}){
 const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      backgroundColor: '#fff',
+      backgroundColor: '#f5f5ff',
       alignItems: 'center',
       justifyContent: 'center',
     },
     subContainer:{
       margin:50,
+      flexDirection:'row'
     },
     
     names:{
@@ -50,6 +53,10 @@ color:'black',
 
     imageContainer:{
 
+    },
+    imageIcons:{
+      height:15,
+      width:100,
     },
     infoContainer:{
 

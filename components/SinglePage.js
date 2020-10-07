@@ -1,9 +1,31 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {View,Text, StyleSheet,Image,TouchableOpacity} from 'react-native';
-
+import StarRating from 'react-native-star-rating'
 import {Feather,MaterialCommunityIcons,AntDesign} from '@expo/vector-icons'
 
-export default function SinglePage (){
+ class SinglePage  extends Component {
+     constructor(props){
+         super(props);
+         this.state={
+generalStarCount:30,
+customeStarCount:3
+         }
+
+     }
+onGeneralStarRating(rating){
+    this.setState({
+        generalStarCount:rating
+    })
+}
+
+onCustomStarRating(rating){
+    this.setState({
+        customeStarCount:rating
+    })
+
+}
+
+    render(){
     return(
 <View style={Styles.container}>
 
@@ -18,13 +40,34 @@ export default function SinglePage (){
     </View>
 
 
-<Image  source={require('../assets/icon.png')} style={Styles.image}/>
+<Image  source={require('../assets/lea-ochel-nsRBbE6-YLs-unsplash.jpg')} style={Styles.image}/>
 <View style={Styles.infoContainer}>
-<Text style={Styles.header}>Red Woman Jacket </Text>
-<View style={Styles.review} > <Text>Review : </Text> </View>
+<Text style={Styles.header}>Black Woman Jacket </Text>
+
+<View style={Styles.review} >
+     <Text>Review : </Text>
+    <StarRating 
+    disabled={false}
+    emptyStar='ios-start-outline'
+    fullStar='ios-star'
+    halfStar='ios-star-half'
+    iconSet='Ionicons'
+    maxStars={4}
+    starSize={19}
+    rating={this.state.customeStarCount}
+    selectedStar={rating=>this.onCustomStarRating(rating)}
+    fullStarColor='yellow'
+    halfStarColor='green'
+    emptyStarColor='grey'
+    halfStarEnabled
+    starPadding={2}
+
+    />
+    
+     </View>
 <View style={Styles.line}></View>
 <Text style={Styles.statement}>
-    it is long establish facts that a reader will be <br/>
+    it is long establish facts that a reader will be 
     distracted by the readable content of a page.
 </Text>
 <View style={Styles.material}>
@@ -70,18 +113,19 @@ export default function SinglePage (){
 </View>
     )
 }
-
+ }
 
 
 const Styles=StyleSheet.create({
     container:{
         color:'#c5cad1',
-marginTop:10,
-marginHorizontal:30,
+paddingTop:10,
+paddingHorizontal:30,
 backgroundColor:'#f5f5ff'
     },
 image:{
-
+height:200,
+width:250,
 },
 icons:{
     flexDirection:'row',
@@ -98,6 +142,7 @@ header:{
 },
 review:{
 marginBottom:7,
+flexDirection:'row'
 },
 line:{
     backgroundColor:'#845EC2',
@@ -111,7 +156,7 @@ line:{
 statement:{
     marginTop:20,
     lineHeight:30,
-    fontWeight:'light'
+    
     
 },
 material:{
@@ -183,3 +228,4 @@ addText:{
 }
 
 })
+export default SinglePage;

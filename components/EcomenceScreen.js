@@ -1,28 +1,28 @@
 import React from 'react';
-import {View,StyleSheet,FlatList,Text,TextInput, TouchableOpacity} from 'react-native';
+import {ScrollView,View,StyleSheet,FlatList,Text,TextInput, TouchableOpacity} from 'react-native';
 import Ecomence from './Ecomence';
 import {Feather,MaterialCommunityIcons,AntDesign} from '@expo/vector-icons'
 
 
 export default function EcomenceScreen (){
     const ecomence=[
-        {name:'Bike jachet softshell Warm', price:'$99',image:require('../assets/favicon.png')},
+        {name:'Bike jachet softshell Warm', price:'$99',image:require('../assets/shirt.png')},
         {name:'PINK HOODY MAARIN', price:'$89',image:require('../assets/favicon.png')},
-        {name:'Hooded jacket classic ', price:'$79',image:require('../assets/icon.png')}
+        {name:'Hooded jacket classic ', price:'$79',image:require('../assets/favicon.png')}
 
     ]
 
 
     return(
-      <View style={styles.bigContainer}>
+      <ScrollView style={styles.bigContainer}>
 
 
 <View style={styles.iconsContainer}>
 
-<MaterialCommunityIcons name='keyboard-backspace' size={25} color='black' style={styles.icon1}/>
-
-<Feather  name='shopping-cart' size={25} color='#845EC2' style={styles.icon2} />
-
+  <MaterialCommunityIcons name='keyboard-backspace' size={25} color='black' style={styles.icon1}/>
+   <View style={styles.icon2} >
+    <Feather  name='shopping-cart' size={25} color='#845EC2' />
+  </View>
 </View>
 
 
@@ -55,7 +55,7 @@ keyExtractor={(item)=>item.price}
 </View>
 
 
-</View>
+</ScrollView>
 
 
     )
@@ -64,24 +64,22 @@ keyExtractor={(item)=>item.price}
 
 const styles = StyleSheet.create({
   bigContainer:{
-
+    color:'#c5cad1',
+    paddingTop:10,
+    paddingHorizontal:30,
+    backgroundColor:'#f5f5ff'
   },
-    bigContainer: {
-      flex: 1,
-      backgroundColor: '',
-      alignItems: 'center',
-      justifyContent: 'center',
-      
-    },
+    
     header:{
       fontSize:15,
       fontWeight:'bold',
       alignSelf:'flex-start',
-      fontStyle:'',
+      
     },
     filterContainer:{},
     filterText:{
-      color:'#845EC2'
+      color:'#845EC2',
+      marginLeft:120,
     },
     input:{
       flexDirection:'row',
@@ -89,14 +87,17 @@ const styles = StyleSheet.create({
       backgroundColor:'#fff',
       margin:20,
       borderColor:"grey",
+      padding:12,
     },
     iconsContainer:{
+      marginTop:30,
       flexDirection:'row',
       marginBottom:25,
-      border:'none',
-      color:'#fff',
+      // backgroundColor:'#000',
+      justifyContent:'space-between'
+      
     },
     icon2:{
-      marginLeft:140,
+
     }
   });
